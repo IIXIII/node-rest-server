@@ -1,12 +1,21 @@
 const express = require('express')
 const Usuario = require('../models/usuario')
+const { verificaToken, verificaUserRol } = require('../midllewares/autenticacion')
+
 const _ = require('underscore')
 let bcrypt = require('bcrypt');
 
 
 let app = express()
 
-app.get('/usuario', (req, res) => {
+app.get('/usuario', verificaToken, (req, res) => {
+
+    return res.json({
+        usuario: req.usuario,
+        nombre: req.usuario.nombre,
+        email: req.usuario.email
+    })
+
 
     let desde = req.query.desde && req.query.desde || 0;
     desde = Number(desde)
@@ -38,7 +47,7 @@ app.get('/usuario', (req, res) => {
     // res.json("get Usuario LOCAL!!!")
 })
 
-app.post('/usuario', (req, res) => {
+app.post('/usuario', [verificaToken, verificaUserRol], (req, res) => {
     let body = req.body;
 
     //CREA UN USUARIO CON LA CLASE USUARIO QUE SE DIO SE ALTA EN EL MODELO
@@ -79,7 +88,7 @@ app.post('/usuario', (req, res) => {
     // }
 })
 
-app.put('/usuario/:id', (req, res) => { //ACTUALIZAR EL USUARIO
+app.put('/usuario/:id', [verificaToken, verificaUserRol], (req, res) => { //ACTUALIZAR EL USUARIO
     let id = req.params.id;
     let body = req.body
 
@@ -106,7 +115,7 @@ app.put('/usuario/:id', (req, res) => { //ACTUALIZAR EL USUARIO
     })
 })
 
-app.delete('/usuario/:id', (req, res) => {
+app.delete('/usuario/:id', [verificaToken, verificaUserRol], (req, res) => {
     let id = req.params.id;
     // Usuario.findByIdAndRemove(id, (err, usuarioBorrado) => {
     //     if (err) { //ERROR AL ENCONTRAR EN LA DB

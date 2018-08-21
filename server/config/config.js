@@ -24,3 +24,17 @@ if (process.env.NODE_ENV == 'dev') {
     urlDB = `${process.env.DB_URI}!@ds227352.mlab.com:27352/cafe`
 }
 process.env.URL_DB = urlDB
+
+
+//==================
+//VENCIMIENTO TOKEN
+//=================
+
+process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 30;
+
+
+//==================
+//SEMILLA
+//=================
+
+process.env.SEMILLA_TOKEN = process.env.SEMILLA_TOKEN || 'secret-IIXIII-desarrollo';

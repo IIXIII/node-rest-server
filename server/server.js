@@ -10,7 +10,7 @@ let app = express()
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(require('./routes/usuario'))
+app.use(require('./routes/index'))
     // parse application/json
 app.use(bodyParser.json())
 
