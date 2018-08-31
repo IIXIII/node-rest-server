@@ -2,9 +2,9 @@
 //PUERTO PARA PRODUCCION O DESARROLLO
 //=================
 
-process.env.PORT = process.env.PORT || 3002
+process.env.PORT = process.env.PORT || 3000
 
-process.env.PORT = process.env.PORT || 3002
+process.env.PORT = process.env.PORT || 3000
 
 
 //==================
@@ -38,3 +38,16 @@ process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 30;
 //=================
 
 process.env.SEMILLA_TOKEN = process.env.SEMILLA_TOKEN || 'secret-IIXIII-desarrollo';
+
+
+// Client ID
+// 984197238705-f14nj7tbb3dpdq9rsn8jqniodocjin96.apps.googleusercontent.com
+
+// Client Secret
+// Y9zISmqQ_cegA7ujRl66W2yx
+
+//==================
+//GOOGLE CLIENT ID
+//=================
+
+process.env.CLIENT_ID = process.env.CLIENT_ID || '984197238705-f14nj7tbb3dpdq9rsn8jqniodocjin96.apps.googleusercontent.com';
