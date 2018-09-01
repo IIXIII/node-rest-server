@@ -30,7 +30,7 @@ process.env.URL_DB = urlDB
 //VENCIMIENTO TOKEN
 //=================
 
-process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 30;
+process.env.CADUCIDAD_TOKEN = '1000h';
 
 
 //==================
